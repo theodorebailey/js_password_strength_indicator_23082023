@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password strength</title>
+    <link rel="stylesheet" href="s.css">
+    <script src="https://kit.fontawesome.com/a09ac47364.js" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/a09ac47364.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+
+    <!-- create our container -->
+    <div class="container">
+        <!-- create our inpu field for password -->
+        <div class="input-box">
+            <!-- create input element -->
+            <input type="password" id="password" placeholder="password">
+            <!-- create button for submission -->
+            <button type="submit"><img src="arrow.png" alt=""></button>
+            <!-- create paragraph to populate with weak medium strong -->
+            <p id="message">Password is: <span id="strength"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // grab our id's
+        // password field for input
+        var pass = document.getElementById("password");
+        // message field for sentence
+        var msg = document.getElementById("message");
+        // strength field for password strength
+        var str = document.getElementById("strength");
+
+        // password field to addevent listener
+        // ass input 
+        // pass a function
+        // if value is greater than 0 display in block
+        pass.addEventListener("input", ()=> {
+            // check for input
+            if (pass.value.length > 0) {
+                msg.style.display = "block";
+
+            }
+            // if smaller don't display
+            else {
+                msg.style.display = "none";
+            }
+
+            // if password length is smaller than 4
+            if(pass.value.length < 4) {
+                // populate weak
+                // change border colour
+                // change text colour
+                // font weight
+                str.innerHTML = "weak";
+                pass.style.borderColor = "#ff5925";
+                str.style.color = "#ff5925";
+                str.style.fontWeight = "500";
+            } 
+            else if (pass.value.length >= 4 && pass.value.length < 8) {
+                // populate medium
+                // change border colour
+                // change text colour
+                // font weight
+                str.innerHTML = "medium";
+                pass.style.borderColor = "yellow";
+                str.style.color = "yellow";
+                str.style.fontWeight = "600";
+                str.style.fontSize = "16px";
+            }
+            else if (pass.value.length >= 8) {
+                // populate strong
+                // change border colour
+                // change text colour
+                // font weight
+                str.innerHTML = "strong";
+                pass.style.borderColor = "#26d730";
+                str.style.color = "#26d730";
+                str.style.fontWeight = "700";
+                str.style.fontSize = "17px";
+            }
+
+        })
+    </script>
+
+    
+</body>
+</html>
